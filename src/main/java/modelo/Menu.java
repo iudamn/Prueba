@@ -2,15 +2,13 @@ package modelo;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Menu {
-	public static void main(String[] args) {
-		ArrayList<Usuario> usuarios_ = new ArrayList<>();
-		menuLogin();
-	}
+	ArrayList<Usuario> usuarios_ = new ArrayList<Usuario>();
 
-	public static void menuLogin(){
+	public void menuLogin(){
 		System.out.println("[1] Ingresar");
 		System.out.println("[2] Salir");
 		int opcion = 0;
@@ -19,20 +17,23 @@ public class Menu {
 	}
 
 
-	public static void menuSwitch(int option) {
+	public void menuSwitch(int option) {
 		switch (option) {
 			case 1:
-				Usuario();
+				crearUsuario();
 				break;
 			case 2:
 				break;
 		}
 	}
 
-	public static void Usuario(){
+	public void crearUsuario(){
 		String correo = getInput("Ingrese correo: ");
 		String contraseña = getInput("Ingrese contraseña: ");
 
+		if(correo.equals(this.usuarios_.getCorreo)){
+
+		}
 	}
 
 	public static String getInput(String message) {
