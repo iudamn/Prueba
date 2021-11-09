@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Menu {
 	ArrayList<Usuario> usuarios_ = new ArrayList<Usuario>();
+	ArrayList<Usuario> estudiantes_ = new ArrayList<Usuario>();
 	Asignatura calculo = new Asignatura();
 	Asignatura edo = new Asignatura();
 	Asignatura fisica = new Asignatura();
@@ -31,7 +32,7 @@ public class Menu {
 		public void menuSwitch ( int option){
 			switch (option) {
 				case 1:
-					crearUsuario();
+					entrarUsuario();
 					break;
 				case 2:
 					break;
@@ -78,12 +79,21 @@ public class Menu {
 			}
 		}
 
-		public void crearUsuario () {
+		public void entrarUsuario () {
 			String correo = getInput("Ingrese correo: ");
 			String contraseña = getInput("Ingrese contraseña: ");
-			for(int i=0; i<this.usuarios_.size();i++) {
-				if (correo.equals(this.usuarios_.get(i).getCorreo())) {
 
+			for(int i=0; i<this.usuarios_.size();i++) {
+				if (correo.equals(this.usuarios_.get(i).getCorreo()) &&
+				contraseña.equals(this.usuarios_.get(i).getContraseña())) {
+
+					for(int j=0; j<this.estudiantes_.size();j++) {
+						if (correo.equals(this.estudiantes_.get(j).getCorreo()){
+						}
+					}
+				}else{
+					System.out.println("No hemos encontrado ningún usuario con este correo o esta contraseña. " +
+							"Vuelva al intentarlo");
 				}
 			}
 		}

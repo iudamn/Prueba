@@ -31,5 +31,9 @@ public class Usuario {
 		return correo;
 	}
 
+	public String getContraseña() {
+		return contraseña;
+	}
+
 
 }
