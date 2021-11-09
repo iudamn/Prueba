@@ -3,6 +3,9 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.Usuario;
+import modelo.Evaluacion;
+
 public class Asignatura {
 	private String codigo;
 	private int año;
