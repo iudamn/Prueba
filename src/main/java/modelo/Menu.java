@@ -81,9 +81,10 @@ public class Menu {
 		public void crearUsuario () {
 			String correo = getInput("Ingrese correo: ");
 			String contraseña = getInput("Ingrese contraseña: ");
+			for(int i=0; i<this.usuarios_.size();i++) {
+				if (correo.equals(this.usuarios_.get(i).getCorreo())) {
 
-			if (correo.equals(this.usuarios_.getCorreo)) {
-
+				}
 			}
 		}
 			public void exit () {
