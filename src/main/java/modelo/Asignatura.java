@@ -3,19 +3,16 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-import modelo.Usuario;
-import modelo.Evaluacion;
-
 public class Asignatura {
 	private String codigo;
-	private int anio;
+	private int año;
 	private int semestre;
 	private String nombre;
 	private String grado;
-	public ArrayList<Usuario> _usuario = new ArrayList<Usuario>();
-	public ArrayList<Evaluacion> _evaluaciones = new ArrayList<Evaluacion>();
+	public ArrayList<Usuario> usuario = new ArrayList<Usuario>();
+	public ArrayList<Evaluacion> evaluaciones = new ArrayList<Evaluacion>();
 
-	public void agregarNota(Object double_nota, Object int_modulo) {
+	public void agregarNota(double nota, int modulo) {
 		throw new UnsupportedOperationException();
 	}
 
