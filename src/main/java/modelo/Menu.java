@@ -9,7 +9,6 @@ public class Menu {
 	ArrayList<Usuario> usuarios_ = new ArrayList<Usuario>();
 	ArrayList<Usuario> estudiantes_ = new ArrayList<Usuario>();
 	ArrayList<Profesor> profesores_ = new ArrayList<Profesor>();
-	ArrayList<Persona> personas = new ArrayList<>();
 	Asignatura calculo = new Asignatura();
 	Asignatura edo = new Asignatura();
 	Asignatura fisica = new Asignatura();
