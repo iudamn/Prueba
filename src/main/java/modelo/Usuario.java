@@ -6,8 +6,8 @@ import java.util.Date;
 
 
 public class Usuario {
-	private String correo;
-	private String contraseña;
+	protected String correo;
+	protected String contraseña;
 
 	public ArrayList<Asignatura> asignatura = new ArrayList<Asignatura>();
 

@@ -7,8 +7,9 @@ import java.util.Scanner;
 
 public class Menu {
 	ArrayList<Usuario> usuarios_ = new ArrayList<Usuario>();
-	ArrayList<Estudiante> estudiantes_ = new ArrayList<Estudiante>();
+	ArrayList<Usuario> estudiantes_ = new ArrayList<Usuario>();
 	ArrayList<Profesor> profesores_ = new ArrayList<Profesor>();
+	ArrayList<Persona> personas = new ArrayList<>();
 	Asignatura calculo = new Asignatura();
 	Asignatura edo = new Asignatura();
 	Asignatura fisica = new Asignatura();
@@ -21,7 +22,7 @@ public class Menu {
 		menuSwitch(opcion);
 	}
 	public void menuEstudiante(){
-		throw new UnsupportedOperationException();
+		System.out.println("hola");
 	}
 
 		public void menuProfesor () {
@@ -91,16 +92,17 @@ public class Menu {
 					for(int j=0; j<this.estudiantes_.size();j++) {
 						if (correo.equalsIgnoreCase(this.estudiantes_.get(j).getCorreo())){
 							menuEstudiante();
+							break;
 						}
 						else{
 							menuProfesor();
+							break;
 						}
 					}
-				}else{
-					System.out.println("No hemos encontrado ningún usuario con este correo o esta contraseña. " +
-							"Vuelva al intentarlo");
 				}
 			}
+			System.out.println("No hemos encontrado ningún usuario con este correo o esta contraseña. " +
+					"Vuelva al intentarlo");
 		}
 
 			public void exit () {

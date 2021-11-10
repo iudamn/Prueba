@@ -8,7 +8,13 @@ public class Profesor extends Persona {
 
 	public Profesor(String correo, String contraseña, String run, Date nacimiento,
 					String nacionalidad, String celular, String domicilio, String cuentaBancaria, String unidad) {
-		super(correo, contraseña, run, nacimiento, nacionalidad, celular, domicilio);
+		this.correo= correo;
+		this.contraseña= contraseña;
+		this.run = run;
+		this.nacimiento = nacimiento;
+		this.nacionalidad = nacionalidad;
+		this.celular = celular;
+		this.domicilio = domicilio;
 		this.cuentaBancaria = cuentaBancaria;
 		this.unidad = unidad;
 	}
