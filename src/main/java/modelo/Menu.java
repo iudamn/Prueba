@@ -7,7 +7,8 @@ import java.util.Scanner;
 
 public class Menu {
 	ArrayList<Usuario> usuarios_ = new ArrayList<Usuario>();
-	ArrayList<Usuario> estudiantes_ = new ArrayList<Usuario>();
+	ArrayList<Estudiante> estudiantes_ = new ArrayList<Estudiante>();
+	ArrayList<Profesor> profesores_ = new ArrayList<Profesor>();
 	Asignatura calculo = new Asignatura();
 	Asignatura edo = new Asignatura();
 	Asignatura fisica = new Asignatura();
@@ -84,11 +85,15 @@ public class Menu {
 			String contraseña = getInput("Ingrese contraseña: ");
 
 			for(int i=0; i<this.usuarios_.size();i++) {
-				if (correo.equals(this.usuarios_.get(i).getCorreo()) &&
-				contraseña.equals(this.usuarios_.get(i).getContraseña())) {
+				if (correo.equalsIgnoreCase(this.usuarios_.get(i).getCorreo()) &&
+				contraseña.equalsIgnoreCase(this.usuarios_.get(i).getContraseña())) {
 
 					for(int j=0; j<this.estudiantes_.size();j++) {
-						if (correo.equals(this.estudiantes_.get(j).getCorreo()){
+						if (correo.equalsIgnoreCase(this.estudiantes_.get(j).getCorreo())){
+							menuEstudiante();
+						}
+						else{
+							menuProfesor();
 						}
 					}
 				}else{
@@ -97,6 +102,7 @@ public class Menu {
 				}
 			}
 		}
+
 			public void exit () {
 				String respuesta = getInput("Desea salir del programa? S/N");
 				respuesta = respuesta.toLowerCase();
