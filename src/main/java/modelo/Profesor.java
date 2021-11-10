@@ -7,7 +7,7 @@ public class Profesor extends Persona {
 	private String unidad;
 
 	public Profesor(String correo, String contraseña, String run, Date nacimiento,
-					String nacionalidad, String celular, String domicilio, String cuentaBancaria, String unidad) {
+					String nacionalidad, String celular, String domicilio, String cuentaBancaria, String unidad){
 		this.correo= correo;
 		this.contraseña= contraseña;
 		this.run = run;

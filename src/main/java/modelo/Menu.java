@@ -14,16 +14,40 @@ public class Menu {
 	Asignatura edo = new Asignatura();
 	Asignatura fisica = new Asignatura();
 
-	public void menuLogin() {
+	public void menuLogin() throws IOException{
 		System.out.println("[1] Ingresar");
 		System.out.println("[2] Salir");
 		int opcion = 0;
-		opcion = validateInput("12");
+		opcion = validateInput("12", 0, 3);
 		menuSwitch(opcion);
 	}
 	public void menuEstudiante(){
-		System.out.println("hola");
+		System.out.println("-------------");
+		System.out.println("[1] Ver notas");
+		System.out.println("[2] Ponderar nota");
+		System.out.println("[0] Salir (S/N)");
 	}
+
+	public void menuSwitchEstudiante(int option) throws IOException {
+		switch (option) {
+			case 1:
+				verNotas();
+				break;
+			case 2:
+				ponderarNotas();
+				break;
+			case 0:
+				exit();
+				break;
+		}
+	}
+
+	public void verNotas(){
+
+	}
+
+	public void ponderarNotas(){}
+
 
 		public void menuProfesor () {
 			System.out.println("-------------");
@@ -31,7 +55,8 @@ public class Menu {
 			System.out.println("[2] Ver notas de una asignatura");
 			System.out.println("[0] Salir (S/N)");
 		}
-		public void menuSwitch ( int option){
+
+		public void menuSwitch ( int option) throws IOException {
 			switch (option) {
 				case 1:
 					entrarUsuario();
@@ -81,7 +106,7 @@ public class Menu {
 			}
 		}
 
-		public void entrarUsuario () {
+		public void entrarUsuario () throws IOException {
 			String correo = getInput("Ingrese correo: ");
 			String contraseña = getInput("Ingrese contraseña: ");
 
@@ -92,17 +117,24 @@ public class Menu {
 					for(int j=0; j<this.estudiantes_.size();j++) {
 						if (correo.equalsIgnoreCase(this.estudiantes_.get(j).getCorreo())){
 							menuEstudiante();
+							int opcion = 0;
+							opcion = validateInput("012", -1, 3);
+							menuSwitchEstudiante(opcion);
 							break;
-						}
-						else{
+
+						}else if(correo.equalsIgnoreCase(this.profesores_.get(j).getCorreo())){
 							menuProfesor();
+							int opcion = 0;
+							opcion = validateInput("012", -1, 3);
+							menuSwitchProfesor(opcion);
 							break;
+
+						}else{
+							System.out.println("La contraseña y el correo no corresponde. Inténtelo nuevamente");
 						}
 					}
 				}
 			}
-			System.out.println("No hemos encontrado ningún usuario con este correo o esta contraseña. " +
-					"Vuelva al intentarlo");
 		}
 
 			public void exit () {
@@ -114,23 +146,25 @@ public class Menu {
 					System.out.println("");
 				}
 			}
+
+
 			public static String getInput (String message){
 				Scanner scanner = new Scanner(System.in);
 				System.out.println(message);
 				return scanner.next();
 			}
 
-			public static int validateInput(String validacion){
-				while (true) {
-					String input = getInput("Seleccione una opción:");
-					if (validacion.indexOf(input) >= 0) {
-						int option = Integer.parseInt(input);
-						if (0 < option && option < 3) {
-							return option;
-						}
-					} else {
-						System.out.println("Opción inválida");
-					}
+	public static int validateInput(String validacion,int a, int b){
+		while (true) {
+			String input = getInput("Seleccione una opción:");
+			if (validacion.indexOf(input) >= 0) {
+				int option = Integer.parseInt(input);
+				if (a < option && option < b) {
+					return option;
 				}
+			} else {
+				System.out.println("Opción inválida");
 			}
+		}
+	}
 }
