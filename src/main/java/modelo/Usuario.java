@@ -8,7 +8,6 @@ import java.util.Date;
 public class Usuario {
 	protected String correo;
 	protected String contraseña;
-
 	public ArrayList<Asignatura> asignatura = new ArrayList<Asignatura>();
 
 	public Usuario(String correo, String contraseña) {
